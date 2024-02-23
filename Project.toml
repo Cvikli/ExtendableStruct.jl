@@ -2,3 +2,6 @@ name = "ExtendableStruct"
 uuid = "b05f1c06-078b-4ac2-9643-307ac292d0cf"
 authors = ["Marcell <havlikmarcell@gmail.com>"]
 version = "0.1.0"
+
+[deps]
+InitLoadableStruct = "c2283afa-f45b-4432-83db-f4cc05c12624"
