@@ -1,0 +1,4 @@
+name = "ExtendableStruct"
+uuid = "b05f1c06-078b-4ac2-9643-307ac292d0cf"
+authors = ["Marcell <havlikmarcell@gmail.com>"]
+version = "0.1.0"
