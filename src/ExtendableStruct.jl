@@ -8,10 +8,10 @@ abstract type Extendable <: InitableLoadable end
 
 ######## Core functions
 extend!(obj::T,c_obj::T)                        where T <: Extendable = merge(data_before(obj, c_obj), c_obj, data_after(c_obj, obj))
-merge(before::T,      cached::T,after::T)       where T <: Extendable = append(append(before,cached),after)
-merge(before::Nothing,cached::T,after::T)       where T <: Extendable = append(cached,after)
-merge(before::T,      cached::T,after::Nothing) where T <: Extendable = append(before,cached)
-merge(before::Nothing,cached::T,after::Nothing) where T <: Extendable = cached
+merge(before::T,      cached::T,after::T)       where T <: Extendable = append(append(before,cached),after), true
+merge(before::Nothing,cached::T,after::T)       where T <: Extendable = append(cached,after), true
+merge(before::T,      cached::T,after::Nothing) where T <: Extendable = append(before,cached), true
+merge(before::Nothing,cached::T,after::Nothing) where T <: Extendable = cached, false
 
 
 ######### Optionalble Redefineable Interfaces

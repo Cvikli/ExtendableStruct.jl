@@ -6,6 +6,7 @@ Using this PKG. The best data management I believe is here: CachPersExteInitLoad
 
 *extendable* data structure. It supports merge(concatenate) operation to merge them to each other. 
 
+*Use this with:* [UltimateStruct.jl](https://github.com/Cvikli/UniversalStruct.jl)
 
 ## To use:
 So if you have an `obj`, that points to a hugh dataset or smaller dataset than `c_obj`(cached_object). Then if you write:
