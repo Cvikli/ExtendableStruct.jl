@@ -1,6 +1,7 @@
 module ExtendableStruct
 
 using InitLoadableStruct: InitableLoadable, load_data!, init
+using Unimplemented
 
 export extend!
 
@@ -26,15 +27,15 @@ data_after(c::T,  obj::T)         where T = need_data_after(obj,c)  ? load_data!
 
 ######### REDEFINE
 # Concat two data with same config.
-append(before::T, after::T)      where T = throw("Implement the merging process, how do you concat two $T")
+@interface append(before::T, after::T)      where T # = throw("Implement the merging process, how do you concat two $T")
 
 # Do we need new data (in front/after) of our current data?
-need_data_before(obj::T, c::T)   where T = obj.fr < c.fr
-need_data_after(obj::T,  c::T)   where T = c.to < obj.to
+@interface need_data_before(obj::T, c::T)   where T # = obj.fr < c.fr
+@interface need_data_after(obj::T,  c::T)   where T # = c.to < obj.to
 
 # Configure and init the (before/after) object that is able to download the right data with load_data
-init_before_data(obj::T, c::T)   where T = init(T, obj.config, obj.fr, c.fr)
-init_after_data(obj::T,  c::T)   where T = init(T, obj.config, c.to, obj.to)
+@interface init_before_data(obj::T, c::T)   where T # = init(T, obj.config, obj.fr, c.fr)
+@interface init_after_data(obj::T,  c::T)   where T # = init(T, obj.config, c.to, obj.to)
 
 
 
